@@ -15,9 +15,21 @@ A collection of Claude Code skills for structured, high-quality analysis tasks.
 
 **输出内容：** 论文概览 → 研究脉络 → 核心贡献 → 方法架构 → 实验解读 → 局限性分析 → 延伸阅读
 
+### [vllm-course-outline](./vllm-course-outline/)
+
+为 vLLM 生成中文课程总纲、课程目录、学习大纲、知识地图和学习路径。
+
+**适用场景：**
+- 系统梳理 vLLM 项目总览、技术发展、架构全景、核心组件、关键特性
+- 设计分布式并行、offloading、attention backend、structured outputs、工具调用等专题课程
+- 按"单课单主题"原则设计主课程或专题高阶课程
+- 为内部培训、技术分享、onboarding 材料生成结构化中文课纲
+
+**输出内容：** 课程总纲 → 课程目录（第X课格式）→ 学习路径 → 知识地图 → 专题高阶课程
+
 ## 使用方式
 
-在 Claude Code 中，将 skill 目录加入配置后即可通过 `/paper-deep-dive` 调用。
+在 Claude Code 中，将 skill 目录加入配置后即可通过对应命令调用。
 
 ```bash
 # 克隆仓库
