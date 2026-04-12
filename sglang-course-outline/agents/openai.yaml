@@ -1,0 +1,4 @@
+﻿interface:
+  display_name: "SGLang 课程总纲"
+  short_description: "生成中文 SGLang 课程总纲、课程目录、知识地图与学习路径"
+  default_prompt: "使用 $sglang-course-outline 生成中文 SGLang 课程目录或课程总纲；默认采用“第1课-...”的课时标题格式，并遵守“同一课只讲一个重要主题”的规则。标准版主课程默认按 15 节组织，每节课都必须有具体模块、链路、接口或运行能力作为主体，并优先按 `启动与入口 -> 请求进入 -> tokenizer / scheduler -> schedule batch -> continuous batching / chunked prefill -> radix attention / prefix reuse -> worker / model runner -> attention backend -> structured generation -> disaggregation / hicache` 的执行流组织；`项目定位`、`版本演进`、`Server Arguments`、`OpenAI-Compatible APIs`、`Offline Engine API`、`SGLang Native APIs`、`Sampling Parameters`、`源码阅读路径` 默认并入相邻功能课或附录，不单独占课；`Speculative Decoding`、`Quantization`、`并行细分维度`、`EPD Disaggregation`、`Model Gateway`、`多模态扩展` 默认下放到专题高阶课程，不占标准版主课程课时；如果用户要求最新版本或最新代码，先核对 SGLang 官方 release/tag 与主仓库代码。"
