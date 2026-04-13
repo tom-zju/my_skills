@@ -10,13 +10,13 @@
 - SGLang 官方 GitHub 仓库：`https://github.com/sgl-project/sglang`
 - SGLang 官方 release/tag 页面与 `main` 主线代码结构
 
-本次模板升级创建时，已核对：
+本模板不固化某一个“当前最新版本号”。
 
-- 官方 release tag：`v0.5.10.post1`
-- 官方发布日期：`2026-04-09`
-- 以及主仓库 `main` 的当前代码结构
+如果用户要求“结合最新版本”“结合最新代码”“main 分支”“最近实现”，必须在生成课程前重新核对：
 
-如果用户要求“结合最新版本”“结合最新代码”“main 分支”“最近实现”，优先重新核对官方 release/tag 与主仓库代码，再写课程。
+- 官方 release/tag
+- 该版本的官方发布日期
+- 主仓库 `main` 的当前代码结构
 
 ## 课程目录输出总规则
 
@@ -61,9 +61,9 @@
 
 默认目录：
 
-1. `第1课-SGLang 最新版环境搭建`
+1. `第1课-SGLang 环境搭建`
 2. `第2课-SGLang 双层体系架构全景`
-3. `第3课-SGLang 请求生命周期与 TokenizerManager`
+3. `第3课-SGLang 请求生命周期`
 4. `第4课-SGLang Scheduler 主流程`
 5. `第5课-SGLang ScheduleBatch 组批与状态推进`
 6. `第6课-SGLang Continuous Batching`
@@ -84,9 +84,9 @@
 - 标准版主课程默认围绕 `启动与入口 -> 请求进入 -> tokenizer / scheduler -> schedule batch -> continuous batching / chunked prefill -> radix attention / prefix reuse -> worker / model runner -> attention backend -> structured generation -> disaggregation / hicache` 组织
 - `项目定位`、`版本演进`、`Server Arguments`、`OpenAI-Compatible APIs`、`Offline Engine API`、`SGLang Native APIs`、`Sampling Parameters`、`源码阅读路径` 默认并入相邻功能课或附录
 - `Speculative Decoding`、`Quantization`、`并行细分维度`、`EPD Disaggregation`、`Model Gateway`、`多模态扩展` 默认不进入标准版主课程，应下放到专项课程
-- `Structured Outputs`、`PD Disaggregation` 与 `HiCache` 是 SGLang 强特性，允许进入标准版主课程
+- `Structured Outputs`、`PD Disaggregation` 与 `HiCache` 是 SGLang 主线强特性，允许进入标准版主课程；但其余输出控制、EPD 与服务生态路由主题继续留在专题营
 
-## 模板三：专题高阶课程
+## 模板二：专题高阶课程
 
 ### A. 并行与解耦专题营
 
@@ -102,7 +102,12 @@
 2. `第2课-Tool Parser`
 3. `第3课-Reasoning Parser`
 4. `第4课-Deterministic Inference`
-5. `第5课-OpenAI Responses / 高级输出接口`
+
+说明：
+
+- 输出控制专题营默认只保留已有稳定文档或源码锚点的主题
+- 不要默认生成 `OpenAI Responses / 高级输出接口` 这样的独立课时
+- 只有当用户明确要求协议层输出接口，且当前版本确有稳定实现时，才可按版本核对后追加 `OpenAI-Compatible 输出协议适配` 之类的专题课
 
 ### C. 缓存与执行优化专题营
 
@@ -127,7 +132,7 @@
 ## 拆课规则
 
 - 主课程先保持纯净，再决定需要补哪些专题营
-- 如果用户要求 18 到 20 节，直接在 `15 节标准版主课程` 后追加合适的专题营，不单独引入“模板二”
+- 如果用户要求 18 到 20 节，直接在 `15 节标准版主课程` 后追加合适的专题营（即本文件中的专题高阶课程），不单独引入额外的深度版模板
 - `Speculative Decoding`、`Quantization`、`Quantized KV Cache` 默认优先进入专题营
 - `TP / DP / DPA / DP Router / EP / Pipeline Parallelism / EPD` 默认优先进入专题营
 - `Tool Parser`、`Reasoning Parser`、`Structured Outputs For Reasoning Models` 默认优先进入专题营

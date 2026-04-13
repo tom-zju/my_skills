@@ -4,7 +4,7 @@
 
 ## 一、最低覆盖面
 
-一份完整的 vLLM 课程材料，默认至少覆盖五层：
+一份完整的 vLLM 课程材料，默认至少覆盖三层主线；只有在扩展版、专题版或源码深讲场景下，再追加高阶专题层：
 
 1. `项目层`
    - vLLM 是什么
@@ -20,19 +20,17 @@
    - KV cache
    - worker / model runner
    - model executor
-   - distributed
-   - multimodal
    - sampling / logits
-4. `特性层`
+4. `主线特性层`
    - throughput
    - memory efficiency
    - caching
+   - service interfaces
+5. `按需高阶专题层`
    - parallelism
    - multimodality
    - quantization
    - speculative decoding
-   - service interfaces
-5. `高级运行时层`
    - offloading
    - PD 分离
    - attention backend
@@ -41,34 +39,53 @@
 
 ## 二、推荐阅读顺序
 
-默认按这个顺序建立全景：
+默认按这个顺序建立主线全景：
 
 1. `README.md`
-2. `RELEASE.md`
-3. `docs/design/arch_overview.md`
-4. `docs/design/paged_attention.md`
-5. `docs/design/prefix_caching.md`
-6. `docs/design/model_runner_v2.md`
-7. `docs/design/mm_processing.md`
-8. `docs/design/torch_compile.md`
-9. `docs/configuration/optimization.md`
-10. `docs/usage/v1_guide.md`
-11. `docs/features/structured_outputs.md`
-12. `docs/features/tool_calling.md`
-13. `docs/serving/parallelism_scaling.md`
-14. `docs/serving/data_parallel_deployment.md`
-15. `docs/serving/expert_parallel_deployment.md`
-16. `docs/serving/context_parallel_deployment.md`
-17. `vllm/entrypoints/`
-18. `vllm/v1/`
-19. `vllm/model_executor/`
-20. `vllm/distributed/`
+2. `docs/design/arch_overview.md`
+3. `docs/usage/v1_guide.md`
+4. `docs/configuration/optimization.md`
+5. `vllm/entrypoints/`
+6. `vllm/v1/`
+7. `vllm/engine/`
+8. `vllm/v1/worker/`
+9. `vllm/v1/attention/`
+10. `vllm/model_executor/`
+11. `vllm/sequence.py`
+12. `vllm/sampling_params.py`
+13. `vllm/logits_process.py`
 
-如果用户要求对齐 `v0.19.0`，还应补充查阅官方 release：
+按需专题再补充查阅：
 
-21. `https://github.com/vllm-project/vllm/releases/tag/v0.19.0`
+14. `RELEASE.md`
+15. `docs/design/paged_attention.md`
+16. `docs/design/prefix_caching.md`
+17. `docs/design/model_runner_v2.md`
+18. `docs/design/mm_processing.md`
+19. `docs/design/torch_compile.md`
+20. `docs/design/attention_backends.md`
+21. `docs/features/structured_outputs.md`
+22. `docs/features/tool_calling.md`
+23. `docs/features/reasoning_outputs.md`
+24. `docs/features/disagg_prefill.md`
+25. `docs/features/disagg_encoder.md`
+26. `docs/features/lora.md`
+27. `docs/features/multimodal_inputs.md`
+28. `docs/serving/parallelism_scaling.md`
+29. `docs/serving/data_parallel_deployment.md`
+30. `docs/serving/expert_parallel_deployment.md`
+31. `docs/serving/context_parallel_deployment.md`
+32. `vllm/distributed/`
+33. `vllm/model_executor/offloader/`
+34. `vllm/v1/kv_offload/`
+35. `vllm/v1/structured_output/`
+36. `vllm/parser/`
+37. `vllm/tool_parsers/`
+38. `vllm/reasoning/`
+39. `vllm/lora/`
+40. `vllm/multimodal/`
 
-并优先检查这些新版主题是否应进入课程：
+如果用户要求对齐某个具体版本，例如 `v0.19.0`，还应补充查阅对应官方 release 页面，并优先检查这些新版主题是否应进入课程：
 
 - zero-bubble async scheduling
 - Model Runner V2
@@ -100,14 +117,18 @@
 
 ### 2. 缓存与调度
 
-默认至少覆盖：
+主线默认至少覆盖：
 
 - PagedAttention
 - KV cache block 管理
 - prefix caching
 - `chunked prefill`
 - continuous batching
+
+如果用户要求调度深讲、扩展版或源码版课程，再按专题覆盖：
+
 - speculative decoding
+- DBO
 
 这部分不要只写“提升吞吐”；要说明：
 
@@ -144,7 +165,7 @@
 
 ### 4. Offloading 与解耦执行
 
-默认至少覆盖：
+只有当用户明确要求深度版、源码版或对应专项时，才默认覆盖：
 
 - `Weight Offloading`
 - `KV Offloading`
@@ -158,7 +179,7 @@
 - KV offload 主要针对 KV cache 容量与冷热管理
 - PD 分离解决的是 prefill / decode 负载与 SLO 解耦
 
-### 4.5 编译与执行路径
+### 5. 编译与执行路径
 
 如果用户要求更细的高阶课程，建议把下面这些主题分别独立成课：
 
@@ -169,9 +190,9 @@
 - `ModelRunnerV2`
 - `执行路径重构`
 
-### 5. Attention Backend 与状态模型
+### 6. Attention Backend 与状态模型
 
-默认至少覆盖：
+只有当用户明确要求架构高级专题、源码深读或 attention backend 专项时，才默认覆盖：
 
 - 常规 attention backend 抽象
 - FlashAttention / FlashInfer / MLA 等典型后端
@@ -188,9 +209,9 @@
 - `Mamba 状态模型`
 - `Hybrid Attention 模型`
 
-### 6. 输出控制与交互接口
+### 7. 输出控制与交互接口
 
-默认至少覆盖：
+只有当用户明确要求 agent、函数调用、受约束解码、reasoning outputs 或协议输出专题时，才默认覆盖：
 
 - `Structured Outputs`
 - grammar / bitmask / constrained decoding
@@ -202,9 +223,9 @@
 
 如果整理成课程目录，默认拆成独立课时，不要把 `Structured Outputs`、`Tool Calling`、`Parser`、`Reasoning Outputs` 压回一课。
 
-### 7. 重要模型结构
+### 8. 重要模型结构
 
-默认至少覆盖：
+只有当用户明确要求模型适配边界、模型支持体系或结构专题时，才默认覆盖：
 
 - Dense decoder-only
 - MTP
