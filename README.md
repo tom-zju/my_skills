@@ -39,6 +39,18 @@ A collection of Claude Code skills for structured, high-quality analysis tasks.
 
 **输出内容：** 课程总纲 → 课程目录（第X课格式）→ 学习路径 → 知识地图 → 专题高阶课程
 
+### [flashinfer-course-outline](./flashinfer-course-outline/)
+
+为 FlashInfer 生成中文课程总纲、课程目录、学习路径、知识地图和培训提纲。
+
+**适用场景：**
+- 系统梳理 FlashInfer 的项目定位、attention serving 主线、KV-Cache、prefill/decode、wrapper 的 `plan/run` 与 cascade
+- 设计 MLA、MoE、sampling、communication、JIT variants、量化 GEMM 等专题课程
+- 按"单课单主题"原则设计主课程、专题高阶课程、模块化 onboarding 或以 FlashInfer 为主对象的对比课程
+- 为内部培训、技术分享、onboarding 材料生成结构化中文课纲
+
+**输出内容：** 课程总纲 → 课程目录（第X课格式）→ 学习路径 → 知识地图 → 专题高阶课程 → 培训/分享/onboarding 提纲
+
 ## 使用方式
 
 在 Claude Code 中，将 skill 目录加入配置后即可通过对应命令调用。

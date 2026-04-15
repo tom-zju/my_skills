@@ -1,0 +1,4 @@
+interface:
+  display_name: "FlashInfer Course Outline"
+  short_description: "为 FlashInfer 生成课纲、专题课、对比课与培训提纲"
+  default_prompt: "使用 $flashinfer-course-outline 为 FlashInfer 生成中文课程总纲、课程目录、学习路径、知识地图、单模块专题课、模块化 onboarding、对比课程或培训提纲；只有在明确要求时再扩展成 12 课版本。若涉及最新版本，先核对官方版本；若是对比课程且涉及最新版本或指定版本，再核对双方版本后生成。"
