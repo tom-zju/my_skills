@@ -51,6 +51,18 @@ A collection of Claude Code skills for structured, high-quality analysis tasks.
 
 **输出内容：** 课程总纲 → 课程目录（第X课格式）→ 学习路径 → 知识地图 → 专题高阶课程 → 培训/分享/onboarding 提纲
 
+### [vllm-omni-course-outline](./vllm-omni-course-outline/)
+
+为 vLLM-Omni 生成中文权威硬核课程总纲、课程目录、学习大纲、知识地图和学习路径。
+
+**适用场景：**
+- 系统梳理 vLLM-Omni 环境基线、项目定位、AR/DiT 异构多阶段架构、stage configs、AsyncOmniEngine、Orchestrator 与多阶段输出路由
+- 设计 AR runtime、Diffusion runtime、Diffusion Attention/Parallelism/Cache、OmniConnector、CFG Companion Flow、Fully Disaggregated Serving、Stage Input Processor、Qwen3-Omni 等硬核课程
+- 按“单课单主题”原则设计 14 课硬核主课程
+- 为内部培训、技术分享、源码导读、onboarding 材料生成结构化中文课纲
+
+**输出内容：** 课程总纲 → 课程目录（第X课格式）→ 学习路径 → 知识地图 → 14 课权威硬核主课程
+
 ## 使用方式
 
 在 Claude Code 中，将 skill 目录加入配置后即可通过对应命令调用。

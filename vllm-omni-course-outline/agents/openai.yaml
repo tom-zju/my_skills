@@ -1,0 +1,4 @@
+interface:
+  display_name: "vLLM-Omni 硬核课程"
+  short_description: "用中文生成 vLLM-Omni 14 课权威硬核主课程；默认覆盖环境基线、异构多阶段架构、AR/DiT runtime、Diffusion Attention/Parallelism/Cache、OmniConnector、CFG 与 Qwen3-Omni 全链路。"
+  default_prompt: "请按 vLLM-Omni 14 课权威硬核主课程生成内容，默认中文、单课单主题，不再拆专题营。课程必须覆盖：环境搭建与源码运行基线、总体架构、Stage Configs、AsyncOmniEngine、Orchestrator、多阶段输出路由与中间表示、AR Runtime、AR ModelRunner、多模态 Payload 与 Hidden State、Diffusion Runtime、Diffusion Attention、Diffusion Parallelism、TeaCache/cache-dit、OmniConnector、CFG Companion Flow、Fully Disaggregated Serving、Stage Input Processor 与 Qwen3-Omni 全链路案例。涉及最新版本、指定版本或 main 分支时，先核对官方 release/tag、README Latest News 与本地 tag/commit。"
