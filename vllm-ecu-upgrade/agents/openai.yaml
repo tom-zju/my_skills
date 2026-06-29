@@ -1,0 +1,3 @@
+﻿display_name: vLLM ECU 升级
+short_description: 将 vllm-ecu 适配到目标上游 vLLM 版本并在 Docker 中验证
+default_prompt: 将 vllm-ecu 升级到指定 vLLM 版本，分析上游 API 变化，修改 ECU patch，部署到容器并运行 smoke test。
